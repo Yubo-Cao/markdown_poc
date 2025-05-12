@@ -32,7 +32,6 @@ public class SelectableTextFlow extends TextFlow {
         this.setOnMouseClicked(event -> toggleSelection());
         this.setOnMousePressed(event -> handleMousePressed(event));
         this.setOnMouseDragged(event -> handleMouseDragged(event));
-        this.setOnMouseReleased(event -> handleMouseReleased(event));
     }
 
     public void setupCopyAccelerator(Scene scene) {
@@ -62,13 +61,6 @@ public class SelectableTextFlow extends TextFlow {
     }
 
     private void handleMouseDragged(MouseEvent event) {
-        if (startHit != null) {
-            endHit = this.hitTest(new Point2D(event.getX(), event.getY()));
-            updateSelectionHighlight();
-        }
-    }
-
-    private void handleMouseReleased(MouseEvent event) {
         if (startHit != null) {
             endHit = this.hitTest(new Point2D(event.getX(), event.getY()));
             updateSelectionHighlight();
